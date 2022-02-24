@@ -1,0 +1,10 @@
+
+g.region n=33.05278 s="31.78364 " e=-106.3405 w=-107.2997
+
+g.extension extension=r.in.nasadem
+
+r.in.nasadem --overwrite output=dona_ana_county_dem resolution=30
+
+v.import input=/home/rene/projects/grass-gis-database-directory/county_boundary_dona_ana.geojson layer=county_boundary_dona_ana output=county_boundary_dona_ana --overwrite
+v.import input=/home/rene/projects/grass-gis-database-directory/roads_nm.geojson layer=roads_nm output=roads_nm --overwrite
+v.buffer input=roads_nm@dona-ana-county output=roads_buffer_1km distance=0.01 --overwrite
